@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 type UpdateBlogParams = {
   userId: string;
@@ -153,60 +153,58 @@ const EditBlog = ({ params }: { params: { id: string } }) => {
     router.push("/dashboard");
   };
   return (
-    <Fragment>
+    <div className="w-full m-auto flex my-4 p-2">
       <Toaster />
-      <div className="w-full m-auto flex my-4 p-2">
-        <div className="flex flex-col justify-center items-center m-auto">
-          <p className="text-2xl dark:text-slate-200 font-bold p-3">
-            Edit A Wonderful Blog 🚀
-          </p>
-          <form onSubmit={handleSubmit}>
-            <input
-              ref={descriptionRef}
-              placeholder="Enter description"
-              type="text"
-              className="rounded-md  bg-slate-200 dark:bg-slate-800 px-4 w-full py-2 my-2 "
-            />
-            <input
-              ref={amountRef}
-              placeholder="Enter amount"
-              className="bg-slate-200 dark:bg-slate-800  rounded-md px-4 py-2 w-full my-2"
-            />
-            <input
-              ref={CategoryRef}
-              placeholder="Enter Category"
-              className="rounded-md bg-slate-200 dark:bg-slate-800 px-4 py-2 w-full my-2"
-            />
-            <input
-              ref={paymentRef}
-              placeholder="Enter Payment method"
-              className="rounded-md bg-slate-200 dark:bg-slate-800 px-4 py-2 w-full my-2"
-            />
-            <input
-              ref={dateRef}
-              type="date"
-              placeholder="Enter Date"
-              className="rounded-md bg-slate-200 dark:bg-slate-800 px-4 py-2 w-full my-2"
-            />
-            <div className="flex justify-center items-center">
-              <Button
-                type="submit"
-                className="font-semibold px-4 py-2 shadow-xl  rounded-lg m-auto "
-              >
-                Update
-              </Button>
-              <Button
-                variant={"destructive"}
-                onClick={handleDelete}
-                className="font-semibold px-4 py-2 shadow-xl bg-red-400 rounded-lg  m-auto mt-2 hover:bg-red-500"
-              >
-                Delete
-              </Button>
-            </div>
-          </form>
-        </div>
+      <div className="flex flex-col justify-center items-center m-auto">
+        <p className="text-2xl dark:text-slate-200 font-bold p-3">
+          Edit A Wonderful Blog 🚀
+        </p>
+        <form onSubmit={handleSubmit}>
+          <input
+            ref={descriptionRef}
+            placeholder="Enter description"
+            type="text"
+            className="rounded-md  bg-slate-200 dark:bg-slate-800 px-4 w-full py-2 my-2 "
+          />
+          <input
+            ref={amountRef}
+            placeholder="Enter amount"
+            className="bg-slate-200 dark:bg-slate-800  rounded-md px-4 py-2 w-full my-2"
+          />
+          <input
+            ref={CategoryRef}
+            placeholder="Enter Category"
+            className="rounded-md bg-slate-200 dark:bg-slate-800 px-4 py-2 w-full my-2"
+          />
+          <input
+            ref={paymentRef}
+            placeholder="Enter Payment method"
+            className="rounded-md bg-slate-200 dark:bg-slate-800 px-4 py-2 w-full my-2"
+          />
+          <input
+            ref={dateRef}
+            type="date"
+            placeholder="Enter Date"
+            className="rounded-md bg-slate-200 dark:bg-slate-800 px-4 py-2 w-full my-2"
+          />
+          <div className="flex justify-center items-center">
+            <Button
+              type="submit"
+              className="font-semibold px-4 py-2 shadow-xl  rounded-lg m-auto "
+            >
+              Update
+            </Button>
+            <Button
+              variant={"destructive"}
+              onClick={handleDelete}
+              className="font-semibold px-4 py-2 shadow-xl bg-red-400 rounded-lg  m-auto mt-2 hover:bg-red-500"
+            >
+              Delete
+            </Button>
+          </div>
+        </form>
       </div>
-    </Fragment>
+    </div>
   );
 };
 
