@@ -32,7 +32,7 @@ import {
 import { DollarSign } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function Dashboard() {
+export default function Page() {
   const [posts, setPosts] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const { user } = useUser();
